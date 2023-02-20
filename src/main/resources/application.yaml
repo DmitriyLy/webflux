@@ -1,0 +1,10 @@
+server:
+  port: 9192
+
+spring:
+  mustache:
+    suffix: .html
+
+logging:
+  level:
+    root: debug
