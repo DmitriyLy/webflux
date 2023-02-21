@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 public class GreetingHandler {
 
     public Mono<ServerResponse> hello(ServerRequest request) {
-        var inserter = BodyInserters.fromValue(new Greeting("Hello, Spring!"));
+        var inserter = BodyInserters.fromValue(new Greeting(1L, "Hello, Spring!"));
         return ServerResponse
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)
@@ -29,12 +29,12 @@ public class GreetingHandler {
 
         Flux<Greeting> greetingFlux = Flux
                 .just(
-                        new Greeting("One"),
-                        new Greeting("Two"),
-                        new Greeting("Three"),
-                        new Greeting("Four"),
-                        new Greeting("Five"),
-                        new Greeting("Six")
+                        new Greeting(1L, "One"),
+                        new Greeting(2L, "Two"),
+                        new Greeting(3L, "Three"),
+                        new Greeting(4L, "Four"),
+                        new Greeting(5L, "Five"),
+                        new Greeting(6L, "Six")
 
                 )
                 .skip(Long.parseLong(start))

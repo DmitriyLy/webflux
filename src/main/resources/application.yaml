@@ -4,7 +4,26 @@ server:
 spring:
   mustache:
     suffix: .html
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: 'jdbc:postgres://localhost:5432/webflux'
+    username: postgres
+    password: postgres
+  r2dbc:
+    url: 'r2dbc:postgres://localhost:5432/webflux'
+    username: postgres
+    password: postgres
+  flyway:
+    url: 'jdbc:postgres://localhost:5432/webflux'
+    password: postgres
+    user: postgres
+    locations: 'classpath:/db/migration'
 
 logging:
   level:
     root: debug
+    org:
+      springframework:
+        data:
+          r2dbc: debug
+
