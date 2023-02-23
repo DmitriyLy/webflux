@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Main page</title>
+    <script>
+        var token = '';
+    </script>
 </head>
 <body>
-    Hello user {{user}}
+Hello user {{user}}
 
 <form onsubmit="
 
@@ -17,9 +20,12 @@
         body: `username=${this.username.value}&password=${this.password.value}`
     };
 
-    fetch('/login', payload)
+    fetch('/auth/login', payload)
         .then(response => response.text())
-        .then(text => console.log(text));
+        .then(text => {
+            console.log(text);
+            token = text;
+        });
 
     return false;
 ">
@@ -28,5 +34,53 @@
     <input type="submit" value="Sign in">
 </form>
 
+<div>
+    <input type="button" value="Find-all" onclick="
+
+    fetch(
+        '/greeting/find-all',
+        {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }
+    )
+    .then(response => {
+        console.log(response);
+        return response.json()
+    })
+    .then(console.log);
+
+"/>
+
+    <input type="button" value="Hello" onclick="
+    fetch(
+        '/hello',
+        {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }
+    )
+    .then(response => {
+        console.log(response);
+        return response.json()
+    })
+    .then(console.log);
+">
+
+    <input type="button" value="Hellos" onclick="
+    fetch(
+        '/hellos',
+        {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }
+    )
+    .then(response => response.json())
+    .then(console.log);
+">
+</div>
 </body>
 </html>

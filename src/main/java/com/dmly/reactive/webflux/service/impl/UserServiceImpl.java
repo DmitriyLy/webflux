@@ -1,4 +1,4 @@
-package com.dmly.reactive.webflux.service;
+package com.dmly.reactive.webflux.service.impl;
 
 import com.dmly.reactive.webflux.repository.UserRepository;
 import lombok.AllArgsConstructor;

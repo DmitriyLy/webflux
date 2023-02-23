@@ -27,3 +27,7 @@ logging:
         data:
           r2dbc: debug
 
+jwt:
+  secret: 'mMKPOv1vve_0e1245kokoNJnhuyubyu_gybgiguytyrty'
+  expiration: 86400
+

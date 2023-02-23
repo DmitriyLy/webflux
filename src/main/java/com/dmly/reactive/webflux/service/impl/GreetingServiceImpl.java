@@ -1,7 +1,8 @@
-package com.dmly.reactive.webflux.service;
+package com.dmly.reactive.webflux.service.impl;
 
 import com.dmly.reactive.webflux.model.Greeting;
 import com.dmly.reactive.webflux.repository.GreetingRepository;
+import com.dmly.reactive.webflux.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
