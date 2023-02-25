@@ -10,14 +10,15 @@ spring:
     username: postgres
     password: postgres
   r2dbc:
-    url: 'r2dbc:postgres://localhost:5432/webflux'
+    url: 'r2dbc:postgresql://localhost:5432/webflux'
     username: postgres
     password: postgres
   flyway:
-    url: 'jdbc:postgres://localhost:5432/webflux'
+    url: 'jdbc:postgresql://localhost:5432/webflux'
     password: postgres
     user: postgres
     locations: 'classpath:/db/migration'
+    driver-class-name: org.postgresql.Driver
 
 logging:
   level:
@@ -31,3 +32,8 @@ jwt:
   secret: 'mMKPOv1vve_0e1245kokoNJnhuyubyu_gybgiguytyrty'
   expiration: 86400
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
